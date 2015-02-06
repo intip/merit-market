@@ -1,0 +1,7 @@
+<h1>Meu teste</h1>
+<form action="{% url 'login' %}" method="POST">
+ {% csrf_token %}
+  {{ form }}
+<input type="submit">
+
+</form>
