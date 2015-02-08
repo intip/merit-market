@@ -1,8 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 
-class Customer(User):
+class Customer(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        primary_key=True
+    )
 
     hearts = models.PositiveIntegerField(
         default=0
@@ -15,6 +19,9 @@ class Customer(User):
     class Meta:
         verbose_name = "Customer"
         verbose_name_plural = "Customers"
+
+    def __str__(self):
+        return '{}'.format(self.user.username)
 
 
 class Transaction(models.Model):
@@ -47,12 +54,13 @@ class Transaction(models.Model):
 
     def save(self, *args, **kwargs):
         """
-            Metodo que gerencia a transferencia de transacao
+        Validates gift for yourself, and greater amount donated
+        his stock of hearts
         """
         if self.receiver == self.giver:
             raise ValueError('Receive most be different from giver')
         elif self.giver.weekly_hearts < self.qtty:
-            raise ValueError('Not weekly hearts or qty more available')
+            raise ValueError('It has no more hearts to donate this week')
 
         self.giver.weekly_hearts -= self.qtty
         self.giver.save()
