@@ -1,0 +1,10 @@
+{% load i18n %}
+<h1>{% trans 'Given my hearts' %}</h1>
+
+<p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }}</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" />
+</form>
