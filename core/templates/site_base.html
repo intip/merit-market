@@ -35,13 +35,15 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           {% if user.is_authenticated %}
           <div class="navbar-header">
-            <a href="#">
+            <a href="{% url 'dashboard' %}">
               {% gravatar user.email 50 %}
             </a>
           </div>
           <ul class="nav navbar-nav">
             <li>
-              <a href="{% url 'dashboard' %}">{{ request.user.get_profile }} <i class="glyphicon glyphicon-star-empty"></i></a>
+              <a href="{% url 'dashboard' %}">
+                {{ user.customer.weekly_hearts }} <i class="glyphicon glyphicon-star-empty"></i>
+              </a>
             </li>
           </ul>
           {% endif %}
