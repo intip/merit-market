@@ -1,17 +1,19 @@
-{% extends "site_base.html" %}
+{% extends 'inner_base.html' %}
 {% load i18n %}
 
-{% block content %}
+{% block main %}
 <div class="row">
-  <h1>{% trans 'Given my hearts' %}</h1>
+  <div class="col-xs-12">
+    <h1>{% trans 'Give my hearts' %}</h1>
 
-  <p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }}</p>
+    <p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }} <i class="glyphicon glyphicon-heart"></i></p>
 
-  <form action="" method="POST">
-      {% csrf_token %}
-      {{ form }}
-      <input type="submit" />
-  </form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" />
+    </form>
+  </div>
 </div>
 
 <div class="row">
