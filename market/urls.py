@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from core.views import TransactionCreateView
+from core.views import TransactionCreateView, IndexView
 
 
 urlpatterns = patterns(
     '',
+    url(r'^$', IndexView.as_view(), name="index"),
     url(r'^transaction/$',
         TransactionCreateView.as_view(), name="transaction"),
 
