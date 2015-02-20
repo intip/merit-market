@@ -1,10 +1,21 @@
+{% extends "site_base.html" %}
 {% load i18n %}
-<h1>{% trans 'Given my hearts' %}</h1>
 
-<p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }}</p>
+{% block content %}
+<div class="row">
+  <h1>{% trans 'Given my hearts' %}</h1>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" />
-</form>
+  <p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }}</p>
+
+  <form action="" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" />
+  </form>
+</div>
+
+<div class="row">
+  {% for transaction in my_transactions %}
+  {% endfor %}
+</div>
+{% endblock %}
