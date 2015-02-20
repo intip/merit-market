@@ -1,18 +1,86 @@
 {% extends 'inner_base.html' %}
 {% load i18n %}
+{% load bootstrap3 %}
 
 {% block main %}
-<div class="row">
+<div class="row dashboard">
   <div class="col-xs-12">
     <h1>{% trans 'Give my hearts' %}</h1>
 
-    <p>{% trans 'Hearts avaiable' %}: {{ self.request.user.customer.weekly_hearts }} <i class="glyphicon glyphicon-heart"></i></p>
+    <p>{% trans 'Hearts avaiable' %}: {{ user.customer.weekly_hearts }} <i class="glyphicon glyphicon-heart"></i></p>
 
     <form action="" method="POST">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" />
+        {% bootstrap_form form %}
+        <button class="btn btn-primary" type="submit">
+          Give!
+        </button>
     </form>
+    <h2></h2>
+  </div>
+  <div class="col-xs-12">
+    <h2>Hearts given to me this week</h2>
+    <div class="received">
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <h2>My kudos this week</h2>
+    <div class="received">
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+      <div class="trans row">
+        <div class="col-xs-12">
+          <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=75">
+          <div class="members">
+            <a href="#">Guilherme Vierno (3<i class="glyphicon glyphicon-heart"></i>)</a>
+          </div>
+          <div class="msg">Lorem ipsum dolor sit amet.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

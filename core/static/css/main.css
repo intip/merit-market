@@ -100,9 +100,18 @@ textarea {
     margin-right: 15px;
 }
 
+.dashboard .trans {
+    margin-bottom: 20px;
+}
 
+.dashboard .received img {
+    float: left;
+    margin-right: 15px;
+}
 
-
+.trans .msg {
+    font-style: italic;
+}
 
 
 
