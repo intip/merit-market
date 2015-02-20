@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bootstrap3',
+    'django_gravatar',
     'core',
 )
 
@@ -83,7 +85,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = "/login/"
+LOGIN_URL = '/'
+
+LOGIN_REDIRECT_URL = '/dashboard/'
 
 
 try:

@@ -1,3 +1,4 @@
+{% load i18n gravatar %}
 <!doctype html>
 <html class="no-js" lang="">
   <head>
@@ -32,19 +33,24 @@
           </button>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse">
+          {% if user.is_authenticated %}
           <div class="navbar-header">
             <a href="#">
-              <img src="https://avatars2.githubusercontent.com/u/681628?v=3&amp;s=50">
+              {% gravatar user.email 50 %}
             </a>
           </div>
           <ul class="nav navbar-nav">
             <li>
-              <a href="#">15 <i class="glyphicon glyphicon-star-empty"></i></a>
+              <a href="{% url 'dashboard' %}">{{ request.user.get_profile }} <i class="glyphicon glyphicon-star-empty"></i></a>
             </li>
           </ul>
+          {% endif %}
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Logout</a></li>
-            <li><a href="#">Login</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>
